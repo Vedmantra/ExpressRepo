@@ -24,7 +24,7 @@ const userSchema = mongoose.Schema({
     gender: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
     }
 })
 

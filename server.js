@@ -1,16 +1,19 @@
 const express = require('express')
 const app = express()
 const port = 8080
+
+require('dotenv').config();
 const frontendLink = process.env.frontendLink
+console.log('frontendLink',frontendLink)
 
 const userModel = require("./usermodel")
 
-const cors = require("cors")
+const cors = require("cors") 
 const corsOptions = {
     origin: frontendLink,
 }
-// app.use(cors(corsOptions))
-app.use(cors())
+app.use(cors(corsOptions))
+// app.use(cors())  
 
 
 // Middleware
@@ -25,6 +28,10 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.json('This is about Page')
+})
+
+app.get('/about2', (req, res) => {
+    res.json('This is about Page2')
 })
 
 // Dynamic Route
@@ -46,7 +53,7 @@ app.get('/create', async (req, res) => {
     //     gender: "male"
     // })
     const createdUser = await userModel.create({
-        // name: "vedmantra2",
+        name: "vedmantra2",
         age: 20,
         gender: "malew",
     })
