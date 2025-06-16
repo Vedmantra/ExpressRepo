@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const port = 8080
+const frontendLink = process.env.frontendLink
 
 const userModel = require("./usermodel")
 
 const cors = require("cors")
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: frontendLink,
 }
 app.use(cors(corsOptions))
 
