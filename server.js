@@ -9,7 +9,9 @@ const cors = require("cors")
 const corsOptions = {
     origin: frontendLink,
 }
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
+
 
 // Middleware
 app.use(function (req, res, next) {
